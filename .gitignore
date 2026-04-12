@@ -23,3 +23,5 @@ package-lock.json
 # Environment & secrets
 .env
 .env.*
+
+.claude
