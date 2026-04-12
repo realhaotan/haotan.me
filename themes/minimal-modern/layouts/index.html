@@ -86,7 +86,7 @@
       <div class="cv-group__content">
         <h3 class="cv-entry__title">{{ .role }}</h3>
         <p class="cv-entry__subtitle"><a href="{{ .org_url }}" target="_blank" rel="noopener">{{ .organization }}</a> · {{ .location }}</p>
-        <p class="cv-entry__body">{{ .description }}</p>
+        <p class="cv-entry__body">{{ .description | markdownify }}</p>
       </div>
     </div>
     {{ end }}
@@ -103,7 +103,7 @@
       <div class="cv-group__content">
         <h3 class="cv-entry__title">{{ .degree }}</h3>
         <p class="cv-entry__subtitle">{{ .institution }}{{ if .location }}, {{ .location }}{{ end }}</p>
-        {{ if .description }}<p class="cv-entry__body">{{ .description }}</p>{{ end }}
+        {{ if .description }}<p class="cv-entry__body">{{ .description | markdownify }}</p>{{ end }}
       </div>
     </div>
     {{ end }}
