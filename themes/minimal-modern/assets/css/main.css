@@ -43,24 +43,14 @@ img {
 }
 
 a {
-  color: var(--color-accent);
+  color: inherit;
   text-decoration: none;
-  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  transition: border-color 0.2s ease;
 }
 
-a::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: var(--color-accent);
-  transition: width 0.25s ease;
-}
-
-a:hover::after {
-  width: 100%;
+a:hover {
+  border-bottom-color: var(--color-accent);
 }
 
 /* ===== Container ===== */
@@ -97,8 +87,8 @@ a:hover::after {
   letter-spacing: -0.02em;
 }
 
-.nav__logo::after {
-  display: none;
+.nav__logo {
+  border-bottom: none;
 }
 
 .nav__links {
@@ -112,15 +102,12 @@ a:hover::after {
   font-weight: 500;
   color: var(--color-text-muted);
   letter-spacing: 0.01em;
+  border-bottom: none;
   transition: color 0.2s ease;
 }
 
 .nav__links a:hover {
   color: var(--color-text);
-}
-
-.nav__links a::after {
-  display: none;
 }
 
 .nav__toggle {
@@ -249,10 +236,6 @@ a:hover::after {
   transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
 
-.hero__link::after {
-  display: none;
-}
-
 .hero__link:hover {
   border-color: var(--color-accent);
   background-color: var(--color-accent-light);
@@ -297,18 +280,7 @@ section + section {
 }
 
 .about__text a {
-  color: var(--color-text);
   font-weight: 500;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.about__text a::after {
-  display: none;
-}
-
-.about__text a:hover {
-  border-bottom-color: var(--color-accent);
-  color: var(--color-accent);
 }
 
 /* ===== Research Section — Editorial Layout ===== */
@@ -425,10 +397,6 @@ section + section {
   transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 
-.pub-action::after {
-  display: none;
-}
-
 .pub-action:hover {
   color: var(--color-accent);
   border-color: var(--color-accent);
@@ -481,7 +449,6 @@ section + section {
 }
 
 .cv-entry__subtitle a {
-  color: var(--color-text-muted);
   font-weight: 500;
 }
 
@@ -546,11 +513,8 @@ section + section {
 .footer__links a {
   display: flex;
   color: var(--color-text-muted);
+  border-bottom: none;
   transition: color 0.2s;
-}
-
-.footer__links a::after {
-  display: none;
 }
 
 .footer__links a:hover {

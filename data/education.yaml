@@ -1,5 +1,5 @@
 - organization: "University of Leeds"
-  org_url: "https://www.leeds.ac.uk/"
+  org_url: ""
   location: "Leeds, UK"
   degree: "Doctor of Philosophy"
   field: "Computer Science"
@@ -7,7 +7,7 @@
   description: "I am under the supervision of [Dr. Nabi Omidvar](https://business.leeds.ac.uk/faculty/staff/1025/dr-nabi-omidvar) and [Prof. Netta Cohen](https://eps.leeds.ac.uk/staff/301/professor_netta_cohen). My research interests include deep model fusion and multi-task learning."
 
 - organization: "Southern University of Science and Technology"
-  org_url: "https://www.sustech.edu.cn/en/"
+  org_url: ""
   location: "Shenzhen, China"
   degree: "Bachelor of Engineering"
   field: "Computer Science and Technology"
