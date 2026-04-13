@@ -85,7 +85,8 @@
       <div class="cv-group__marker">{{ .period }}</div>
       <div class="cv-group__content">
         <h3 class="cv-entry__title">{{ .role }}</h3>
-        <p class="cv-entry__subtitle"><a href="{{ .org_url }}" target="_blank" rel="noopener">{{ .organization }}</a> · {{ .location }}</p>
+        <p class="cv-entry__subtitle"><a href="{{ .org_url }}" target="_blank" rel="noopener">{{ .organization }}</a>,
+          {{ .location }}</p>
         <p class="cv-entry__body">{{ .description | markdownify }}</p>
       </div>
     </div>
@@ -102,7 +103,8 @@
       <div class="cv-group__marker">{{ .period }}</div>
       <div class="cv-group__content">
         <h3 class="cv-entry__title">{{ .degree }}</h3>
-        <p class="cv-entry__subtitle">{{ .institution }}{{ if .location }}, {{ .location }}{{ end }}</p>
+        <p class="cv-entry__subtitle">{{ if .org_url }}<a href="{{ .org_url }}" target="_blank" rel="noopener">{{
+            .organization }}</a>{{ else }}{{ .organization }}{{ end }}{{ if .location }}, {{ .location }}{{ end }}</p>
         {{ if .description }}<p class="cv-entry__body">{{ .description | markdownify }}</p>{{ end }}
       </div>
     </div>

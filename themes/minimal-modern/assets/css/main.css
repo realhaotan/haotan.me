@@ -435,26 +435,6 @@ section + section {
   background: var(--color-accent-light);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .research-group,
-  .cv-group {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 2rem 0;
-  }
-
-  .research-group__marker,
-  .cv-group__marker {
-    position: static;
-    font-size: 0.9rem;
-  }
-
-  .pub-entry {
-    padding: 1.25rem 1rem;
-  }
-}
-
 /* ===== CV Grid — Experience & Education ===== */
 .cv-group {
   display: grid;
@@ -509,6 +489,26 @@ section + section {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   line-height: 1.75;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .research-group,
+  .cv-group {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+  }
+
+  .research-group__marker,
+  .cv-group__marker {
+    position: static;
+    font-size: 0.9rem;
+  }
+
+  .pub-entry {
+    padding: 1.25rem 1rem;
+  }
 }
 
 
