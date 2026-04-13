@@ -1,16 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title>Hao Tan favicon</title>
-  <rect width="64" height="64" rx="12" fill="#C1440E" />
-  <text
-    x="32"
-    y="35"
-    fill="#FAFAF8"
-    font-family="'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif"
-    font-size="34"
-    font-weight="700"
-    text-anchor="middle"
-    dominant-baseline="middle"
-  >
-    浩
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <text x="32" y="35" fill="#1a1a1a"
+    font-family="'PingFang SC','Noto Sans CJK SC',sans-serif"
+    font-size="42" font-weight="500"
+    text-anchor="middle" dominant-baseline="middle">浩</text>
 </svg>
