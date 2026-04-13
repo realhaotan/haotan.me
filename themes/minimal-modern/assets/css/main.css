@@ -20,6 +20,8 @@
   --max-width: 860px;
   --section-padding: 6rem 0;
   --nav-height: 64px;
+  --hero-padding-top: 5.5rem;
+  --hero-padding-bottom: 6.75rem;
 }
 
 /* ===== Reset & Base ===== */
@@ -190,8 +192,9 @@ a:hover {
 
 /* ===== Hero Section ===== */
 .hero {
-  padding: 7rem 0 5rem;
+  padding: var(--hero-padding-top) 0 var(--hero-padding-bottom);
   min-height: calc(100vh - var(--nav-height));
+  min-height: calc(100svh - var(--nav-height));
   display: flex;
   align-items: center;
 }
@@ -217,7 +220,6 @@ a:hover {
   border-radius: 10px;
   object-fit: cover;
   object-position: center 15%;
-  filter: grayscale(0.15) contrast(1.03);
 }
 
 .hero__eyebrow {
@@ -657,7 +659,7 @@ section+section {
 
 @media (max-width: 768px) {
   .hero {
-    padding: 4rem 0 3rem;
+    padding: 3.5rem 0 3rem;
     min-height: auto;
   }
 
