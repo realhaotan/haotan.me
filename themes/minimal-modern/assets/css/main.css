@@ -85,9 +85,6 @@ a:hover {
   font-size: 1.1rem;
   color: var(--color-text);
   letter-spacing: -0.02em;
-}
-
-.nav__logo {
   border-bottom: none;
 }
 
@@ -260,7 +257,7 @@ section + section {
 .section__title {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--color-text);
