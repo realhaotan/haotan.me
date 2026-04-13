@@ -326,7 +326,8 @@ section+section {
 }
 
 .pub-entry:focus-within,
-.pub-entry.pub-entry--pressed {
+.pub-entry.pub-entry--pressed,
+.pub-entry.pub-entry--active {
   border-color: var(--color-border);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
 }
