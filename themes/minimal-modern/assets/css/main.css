@@ -365,7 +365,7 @@ section + section {
 }
 
 .pub-entry__authors strong {
-  color: var(--color-text);
+  color: inherit;
   font-weight: 600;
 }
 
