@@ -18,14 +18,16 @@ No tests, linter, or package manager — this is a pure Hugo project.
 
 ### Data-driven single-page site
 
-The homepage is composed of sections defined in `data/home.yaml`. Each entry specifies an `id`, a `partial` template to render it, and an optional `collection` pointing to a data file:
+The homepage is composed of sections defined in `data/home.yaml`. Each entry specifies an `id`, a `partial` template to render it, and a `collection` pointing to a data file under `data/`:
 
 | Section    | Partial                  | Data source              |
 |------------|--------------------------|--------------------------|
-| About      | `content-section.html`   | `content/_index.md`      |
+| About      | `content-section.html`   | `data/about.yaml`        |
 | Research   | `research-section.html`  | `data/publications.yaml` |
 | Experience | `cv-section.html`        | `data/experience.yaml`   |
 | Education  | `cv-section.html`        | `data/education.yaml`    |
+
+Sections can also specify `groups` (research uses this to group by type: journal, conference, patent) and `headline_key` (CV sections use this to pick the main heading field, e.g. "role" or "degree").
 
 To add a new section: add an entry in `data/home.yaml`, create the corresponding data YAML file and partial template.
 
@@ -33,6 +35,8 @@ To add a new section: add an entry in `data/home.yaml`, create the corresponding
 
 - `layouts/_default/baseof.html` — Base template: sticky nav, hero, section loop, footer. Iterates over `data/home.yaml` and renders each section's partial.
 - `layouts/index.html` — Empty; all homepage rendering is in `baseof.html`.
+- `layouts/blog/list.html` — Blog post listing with cards (date, title, summary).
+- `layouts/blog/single.html` — Individual blog post view.
 - `layouts/partials/` — Section templates and helpers (`icon.html` for SVG icons, `social-link.html` for social links).
 
 ### Assets
@@ -41,9 +45,15 @@ Single CSS file (`assets/css/main.css`) and single JS file (`assets/js/main.js`)
 
 JS handles: mobile hamburger toggle, scroll-spy for active nav link (`aria-current`), and publication entry click/keyboard interactions.
 
+### Static assets (`static/`)
+
+- `profile.jpg` — Hero portrait photo (referenced in `hugo.toml` as `params.profilePhoto`).
+- `favicon.svg` / `logo.svg` — Site favicon and navigation logo.
+- `CNAME` — Custom domain config (`haotan.me`).
+
 ### Configuration
 
-`hugo.toml` — Site metadata, social links array (`params.social`), and profile info used by the hero section. Taxonomies are disabled.
+`hugo.toml` — Site metadata, social links array (`params.social`), and profile info used by the hero section. Taxonomies are disabled. Blog is a standard Hugo section under `content/blog/`.
 
 ### Styling considerations
 
