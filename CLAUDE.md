@@ -57,7 +57,12 @@ JS handles: mobile hamburger toggle, scroll-spy for active nav link (`aria-curre
 
 ### Styling considerations
 
-When modifying CSS, consider that this website is viewed on both devices with a real mouse/trackpad and on touch devices. Use `@media (hover: hover)` to guard hover effects so they don't stick on touch screens.
+This site is used on desktops, tablets, and phones. Keep all three in mind when writing CSS:
+
+- **Hover effects**: Always wrap `:hover` rules in `@media (hover: hover)` so they don't stick on touch screens. For interactive elements that need tap feedback, use `:active` or `:focus-visible` instead.
+- **Responsive breakpoints**: 768px (tablet — grid collapses to single column), 560px (mobile — hamburger nav appears), 480px (narrow — tighter padding). Test changes at all three.
+- **Touch targets**: Buttons and links should be at least 44×44 CSS pixels on mobile for comfortable tapping.
+- **Viewport units**: Prefer `svh`/`svw` over `vh`/`vw` where the mobile address bar affects layout (the hero already does this).
 
 ### Deployment
 
