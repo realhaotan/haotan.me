@@ -9,6 +9,13 @@
     <div class="blog-post__content">
       {{ .Content }}
     </div>
+    {{ if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
+    <footer class="blog-post__footer">
+      <p class="blog-post__lastmod">
+        Last updated on <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
+      </p>
+    </footer>
+    {{ end }}
   </div>
 </article>
 {{ end }}

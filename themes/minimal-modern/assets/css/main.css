@@ -757,6 +757,18 @@ section+section {
   margin: var(--space-2xl) 0;
 }
 
+.blog-post__footer {
+  margin-top: var(--space-2xl);
+}
+
+.blog-post__lastmod {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
 /* ===== Footer ===== */
 .footer {
   padding: var(--space-lg) 0;

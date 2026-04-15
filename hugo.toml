@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'Hao Tan'
 theme = 'minimal-modern'
 disableKinds = ['taxonomy', 'term']
+enableGitInfo = true
+
+[frontmatter]
+  lastmod = ['lastmod', ':git', 'date']
 
 [params]
   name = "Hao Tan"
