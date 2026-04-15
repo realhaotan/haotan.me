@@ -2,6 +2,7 @@
   title: "About"
   partial: "content-section.html"
   include_in_nav: true
+  collection: "about"
 
 - id: "research"
   title: "Research"

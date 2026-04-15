@@ -40,9 +40,14 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__links">
-        {{ range where $sections "include_in_nav" true }}
-        <li><a href="#{{ .id }}">{{ .title }}</a></li>
+        {{ if .IsHome }}
+          {{ range where $sections "include_in_nav" true }}
+          <li><a href="#{{ .id }}">{{ .title }}</a></li>
+          {{ end }}
+        {{ else }}
+          <li><a href="/">Home</a></li>
         {{ end }}
+        <li><a href="{{ "blog/" | relURL }}"{{ if or (.IsSection) (.IsPage) }}{{ if eq (.Section) "blog" }} aria-current="true"{{ end }}{{ end }}>Blog</a></li>
       </ul>
     </div>
   </nav>

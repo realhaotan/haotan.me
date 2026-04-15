@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="blog-post">
+  <div class="container">
+    <a href="{{ "blog/" | relURL }}" class="blog-post__back">&larr; Back to blog</a>
+    <header class="blog-post__header">
+      <time class="blog-post__date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      <h1 class="blog-post__title">{{ .Title }}</h1>
+    </header>
+    <div class="blog-post__content">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
+{{ end }}

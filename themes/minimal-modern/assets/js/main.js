@@ -7,25 +7,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   bindActiveNavState(navSectionLinks);
 
-  if (!toggle || !links) {
-    publicationEntries.forEach(function (entry) {
-      bindPublicationEntryState(entry, setActivePublicationEntry);
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('nav__links--open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-    bindPublicationEntryDismiss(publicationEntries, setActivePublicationEntry);
-    return;
+
+    links.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        links.classList.remove('nav__links--open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
-
-  toggle.addEventListener('click', function () {
-    var open = links.classList.toggle('nav__links--open');
-    toggle.setAttribute('aria-expanded', String(open));
-  });
-
-  links.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      links.classList.remove('nav__links--open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
 
   publicationEntries.forEach(function (entry) {
     bindPublicationEntryState(entry, setActivePublicationEntry);
@@ -55,7 +49,7 @@ function bindPublicationEntryState(entry, setActivePublicationEntry) {
   });
 
   ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (eventName) {
-    entry.addEventListener(eventName, function (event) {
+    entry.addEventListener(eventName, function () {
       entry.classList.remove('pub-entry--pressed');
     });
   });
