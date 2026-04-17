@@ -41,7 +41,7 @@ To add a new section: add an entry in `data/home.yaml`, create the corresponding
 
 ### Assets
 
-Single CSS file (`themes/minimal-modern/assets/css/main.css`) and single JS file (`themes/minimal-modern/assets/js/main.js`), both processed through Hugo Pipes (minify + fingerprint + SRI hash). CSS uses custom properties for theming and a three-font typographic system: Fraunces (display/headings), Inter (UI elements like nav and labels), Source Serif 4 (body text). Responsive breakpoints: 768px, 560px (mobile menu), 480px.
+Single CSS file (`themes/minimal-modern/assets/css/main.css`) and single JS file (`themes/minimal-modern/assets/js/main.js`), both processed through Hugo Pipes (minify + fingerprint + SRI hash). CSS uses custom properties for theming and a three-font typographic system: Fraunces (display/headings), Geist (UI elements like nav and labels), Source Serif 4 (body text). Responsive breakpoints: 768px, 560px (mobile menu), 480px.
 
 JS handles: mobile hamburger toggle, scroll-spy for active nav link (`aria-current`), publication entry click/keyboard interactions, and click-outside dismissal of active entries.
 
