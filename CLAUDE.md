@@ -16,9 +16,14 @@ No tests, linter, or package manager — this is a pure Hugo project.
 
 ## Architecture
 
-### Data-driven single-page site
+### Data-driven section pages
 
-The homepage is composed of sections defined in `data/home.yaml`. Each entry specifies an `id`, a `partial` template to render it, and a `collection` pointing to a data file under `data/`:
+Homepage and CV pages are both composed of sections driven by YAML files in `data/`. Each entry specifies an `id`, a `partial` template to render it, and a `collection` pointing to a data file under `data/`:
+
+| Page | Source           | Sections (in order)                                                                 |
+|------|------------------|-------------------------------------------------------------------------------------|
+| `/`  | `data/home.yaml` | About                                                                               |
+| `/cv/` | `data/cv.yaml` | Experience · Education · Research                                                   |
 
 | Section    | Partial                  | Data source              |
 |------------|--------------------------|--------------------------|
@@ -29,21 +34,28 @@ The homepage is composed of sections defined in `data/home.yaml`. Each entry spe
 
 Sections can also specify `groups` (research uses this to group by type: journal, conference, patent) and `headline_key` (CV sections use this to pick the main heading field, e.g. "role" or "degree").
 
-To add a new section: add an entry in `data/home.yaml`, create the corresponding data YAML file and partial template.
+To add a new section: add an entry in the relevant `data/*.yaml` file, then create the corresponding data YAML file and partial template if they don't already exist.
 
 ### Theme layout (`themes/minimal-modern/`)
 
-- `layouts/_default/baseof.html` — Base template: sticky nav, hero, section loop, footer. Iterates over `data/home.yaml` and renders each section's partial.
-- `layouts/index.html` — Empty; all homepage rendering is in `baseof.html`.
-- `layouts/blog/list.html` — Blog post listing with cards (date, title, summary).
-- `layouts/blog/single.html` — Individual blog post view.
-- `layouts/partials/` — Section templates and helpers (`icon.html` for SVG icons, `social-link.html` for social links).
+- `layouts/_default/baseof.html` — Base template: sticky nav, footer, and `<main>` block. Nav is hand-rolled (CV · Projects · Blog); the logo returns to `/` with `aria-current` on the active section.
+- `layouts/index.html` — Homepage: hero + section loop over `data/home.yaml`.
+- `layouts/cv/list.html` — CV page: title + section loop over `data/cv.yaml` (same pattern as the homepage, different data source).
+- `layouts/blog/list.html` · `layouts/blog/single.html` — Blog listing and detail.
+- `layouts/projects/list.html` · `layouts/projects/single.html` — Projects listing (cards with year/status/tags) and detail (meta, action links for code/paper/demo, prose, tags footer).
+- `layouts/partials/` — Section templates and helpers (`icon.html` for SVG icons including `link` for external URLs, `social-link.html` for social links).
+
+### Content sections
+
+- `content/blog/` — Blog posts. `draft: true` in frontmatter hides them from production builds; `hugo server -D` shows drafts locally.
+- `content/projects/` — Projects. Same draft mechanism as blog. Frontmatter supports `status`, `tags`, and a `links` array of `{label, url, icon}` for external actions.
+- `content/cv/_index.md` — Title-only index; the actual CV content comes from `data/cv.yaml`.
 
 ### Assets
 
 Single CSS file (`themes/minimal-modern/assets/css/main.css`) and single JS file (`themes/minimal-modern/assets/js/main.js`), both processed through Hugo Pipes (minify + fingerprint + SRI hash). CSS uses custom properties for theming and a three-font typographic system: Fraunces (display/headings), Geist (UI elements like nav and labels), Source Serif 4 (body text). Responsive breakpoints: 768px, 560px (mobile menu), 480px.
 
-JS handles: mobile hamburger toggle, scroll-spy for active nav link (`aria-current`), publication entry click/keyboard interactions, and click-outside dismissal of active entries.
+JS handles: mobile hamburger toggle, publication entry click/keyboard interactions, and click-outside dismissal of active entries. A scroll-spy for in-page anchor links also exists but is dormant with the current top-level nav (no `#`-anchor links present).
 
 ### Static assets (`static/`)
 
@@ -53,7 +65,7 @@ JS handles: mobile hamburger toggle, scroll-spy for active nav link (`aria-curre
 
 ### Configuration
 
-`hugo.toml` — Site metadata, social links array (`params.social`), and profile info used by the hero section. Taxonomies are disabled. Blog is a standard Hugo section under `content/blog/`.
+`hugo.toml` — Site metadata, social links array (`params.social`), and profile info used by the hero section. Taxonomies are disabled. Blog and Projects are standard Hugo sections under `content/`.
 
 ### Styling considerations
 
